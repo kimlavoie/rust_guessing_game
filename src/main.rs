@@ -1,5 +1,7 @@
 extern crate rand;
 
+use std::io::stdin;
+
 #[derive(Debug)]
 struct Answer {
     message: String,
@@ -23,7 +25,7 @@ impl PartialEq for Answer {
 
 fn read_line() -> Result<String, std::io::Error> {
     let mut input: String = String::new();
-    std::io::stdin().read_line(&mut input).map(|_| input)
+    stdin().read_line(&mut input).map(|_| input)
 }
 
 fn read_number() -> u32 {
@@ -52,7 +54,7 @@ fn get_result(chosen_number: u32, number_to_guess: u32) -> Answer{
 
 fn play(){
     let random_number = rand::random::<u32>() % 100;
-        println!("{}", random_number);  
+    // println!("{}", random_number);  
 
     let mut continu = true;
     while continu {
